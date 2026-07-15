@@ -1,194 +1,139 @@
-index.html
 <!DOCTYPE html>
 <html lang="fi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Kimaltava sydän</title>
+<title>Sydän</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-   body {
-    margin: 0;
-    min-height: 100vh;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    background: linear-gradient(
+<style>
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(
         to bottom,
         #fffafd,
         #fff3f8
     );
-
-    overflow: hidden;
+    font-family:Georgia, serif;
 }
 
-        .heart-container {
-            position: relative;
-            width: 340px;
-            height: 310px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-       .heart {
-    position: relative;
-    width: 240px;
-    height: 240px;
-
-    background: linear-gradient(
-        145deg,
-        #ffd4e8 0%,
-        #ffb8d8 35%,
-        #ff99c8 70%,
-        #ff86bf 100%
-    );
-
-    border: 5px solid #c85a8d;
-
-    transform: rotate(-45deg);
-
-    box-shadow:
-        0 10px 25px rgba(0,0,0,0.15),
-        0 20px 45px rgba(200,90,141,0.25),
-        inset 8px 8px 15px rgba(255,255,255,0.7),
-        inset -8px -8px 15px rgba(200,90,141,0.18);
-        
-        animation: glow 3.5s ease-in-out infinite;
+.card{
+    position:relative;
+    width:500px;
+    max-width:90vw;
 }
 
-.heart::before,
-.heart::after {
-    content: "";
-    position: absolute;
-    width: 240px;
-    height: 240px;
-
-    background: inherit;
-    border: 5px solid #c85a8d;
-    border-radius: 50%;
+.heart{
+    width:100%;
+    filter:
+        drop-shadow(0 12px 20px rgba(0,0,0,0.15))
+        drop-shadow(0 0 25px rgba(255,120,180,0.25));
 }
 
-.heart::before {
-    top: -120px;
-    left: -5px;
-    border-bottom-color: transparent;
+.heart svg{
+    width:100%;
+    height:auto;
+    display:block;
 }
 
-.heart::after {
-    left: 120px;
-    top: -5px;
-    border-left-color: transparent;
-}
+.text{
+    position:absolute;
+    inset:0;
 
-        .text {
-    position: absolute;
-    top: 48%;
-    left: 50%;
-    width: 220px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-    transform: translate(-50%, -50%);
+    text-align:center;
 
-    color: #ffffff;
-
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 24px;
-    font-weight: normal;
-
-    text-align: center;
-    line-height: 1.4;
+    color:white;
+    font-size:30px;
+    line-height:1.4;
 
     text-shadow:
-        0 1px 2px rgba(0,0,0,0.15),
-        0 0 10px rgba(255,255,255,0.3);
+        0 2px 4px rgba(0,0,0,0.15);
 
-    z-index: 5;
+    padding:80px;
 }
 
-        .sparkle {
-            position: absolute;
-            z-index: 10;
-            color: white;
-            font-size: 26px;
-            opacity: 0;
-            text-shadow: 0 0 8px white;
-            animation: twinkle 3s infinite;
-        }
+.sparkle{
+    position:absolute;
+    color:white;
+    font-size:28px;
+    opacity:0;
+    animation:twinkle 4s infinite;
+}
 
-        .sparkle-1 {
-            top: 5px;
-            left: 35px;
-        }
+.s1{
+    top:40px;
+    left:20px;
+}
 
-        .sparkle-2 {
-            top: 45px;
-            right: 20px;
-            animation-delay: 0.8s;
-        }
+.s2{
+    top:70px;
+    right:30px;
+    animation-delay:1s;
+}
 
-        .sparkle-3 {
-            bottom: 45px;
-            left: 20px;
-            animation-delay: 1.6s;
-        }
+.s3{
+    bottom:50px;
+    left:40px;
+    animation-delay:2s;
+}
 
-        .sparkle-4 {
-            right: 45px;
-            bottom: 20px;
-            animation-delay: 2.2s;
-        }
+.s4{
+    bottom:30px;
+    right:50px;
+    animation-delay:3s;
+}
 
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0.5) rotate(0deg);
-            }
-
-            50% {
-                opacity: 1;
-                transform: scale(1.2) rotate(20deg);
-            }
-        }
-
-        @keyframes glow {
-            0%, 100% {
-                filter: brightness(1);
-            }
-
-            50% {
-                filter: brightness(1.08);
-            }
-        }
-
-        @media (max-width: 500px) {
-            .heart-container {
-                transform: scale(0.8);
-            }
-        }
-    </style>
+@keyframes twinkle{
+    0%,100%{
+        opacity:0;
+        transform:scale(0.5);
+    }
+    50%{
+        opacity:1;
+        transform:scale(1.15);
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <div class="heart-container">
-        <span class="sparkle sparkle-1">✦</span>
-        <span class="sparkle sparkle-2">✧</span>
-        <span class="sparkle sparkle-3">✦</span>
-        <span class="sparkle sparkle-4">✧</span>
+<div class="card">
 
-        <div class="heart"></div>
+    <div class="sparkle s1">✦</div>
+    <div class="sparkle s2">✧</div>
+    <div class="sparkle s3">✦</div>
+    <div class="sparkle s4">✧</div>
 
-        <div class="text">
-            Sinä olet minulle tärkeä
-        </div>
+    <div class="heart">
+        <svg viewBox="0 0 512 512">
+            <path
+                fill="#ff9ccf"
+                stroke="#c85a8d"
+                stroke-width="12"
+                d="M256 472
+                C 80 340, 20 240, 20 140
+                C 20 60, 80 20, 140 20
+                C 200 20, 240 60, 256 95
+                C 272 60, 312 20, 372 20
+                C 432 20, 492 60, 492 140
+                C 492 240, 432 340, 256 472 Z"/>
+        </svg>
     </div>
+
+    <div class="text">
+        Sinä olet minulle tärkeä
+    </div>
+
+</div>
 
 </body>
 </html>
