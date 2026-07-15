@@ -12,16 +12,22 @@ index.html
             box-sizing: border-box;
         }
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;
-            background: #fff5f9;
-            font-family: Georgia, serif;
-        }
+   body {
+    margin: 0;
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(
+        to bottom,
+        #fffafd,
+        #fff3f8
+    );
+
+    overflow: hidden;
+}
 
         .heart-container {
             position: relative;
@@ -32,55 +38,79 @@ index.html
             align-items: center;
         }
 
-        .heart {
-            position: relative;
-            width: 220px;
-            height: 220px;
-            background: linear-gradient(145deg, #ff85bf, #ff4fa3);
-            border: 4px solid #ffd2e7;
-            transform: rotate(-45deg);
-            box-shadow:
-                0 0 25px rgba(255, 79, 163, 0.35),
-                inset 0 0 18px rgba(255, 255, 255, 0.35);
-            animation: glow 3.5s ease-in-out infinite;
-        }
+       .heart {
+    position: relative;
+    width: 240px;
+    height: 240px;
 
-        .heart::before,
-        .heart::after {
-            content: "";
-            position: absolute;
-            width: 220px;
-            height: 220px;
-            background: inherit;
-            border: 4px solid #ffd2e7;
-            border-radius: 50%;
-        }
+    background: linear-gradient(
+        145deg,
+        #ffd4e8 0%,
+        #ffb8d8 35%,
+        #ff99c8 70%,
+        #ff86bf 100%
+    );
 
-        .heart::before {
-            top: -110px;
-            left: -4px;
-            border-bottom-color: transparent;
-        }
+    border: 5px solid #c85a8d;
 
-        .heart::after {
-            top: -4px;
-            left: 110px;
-            border-left-color: transparent;
-        }
+    transform: rotate(-45deg);
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,0.15),
+        0 20px 45px rgba(200,90,141,0.25),
+        inset 8px 8px 15px rgba(255,255,255,0.7),
+        inset -8px -8px 15px rgba(200,90,141,0.18);
+        
+        animation: glow 3.5s ease-in-out infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    width: 240px;
+    height: 240px;
+
+    background: inherit;
+    border: 5px solid #c85a8d;
+    border-radius: 50%;
+}
+
+.heart::before {
+    top: -120px;
+    left: -5px;
+    border-bottom-color: transparent;
+}
+
+.heart::after {
+    left: 120px;
+    top: -5px;
+    border-left-color: transparent;
+}
 
         .text {
-            position: absolute;
-            top: 48%;
-            left: 50%;
-            width: 230px;
-            transform: translate(-50%, -50%);
-            z-index: 5;
-            color: white;
-            font-size: 24px;
-            line-height: 1.4;
-            text-align: center;
-            text-shadow: 0 2px 4px rgba(120, 20, 70, 0.35);
-        }
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    width: 220px;
+
+    transform: translate(-50%, -50%);
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    font-weight: normal;
+
+    text-align: center;
+    line-height: 1.4;
+
+    text-shadow:
+        0 1px 2px rgba(0,0,0,0.15),
+        0 0 10px rgba(255,255,255,0.3);
+
+    z-index: 5;
+}
 
         .sparkle {
             position: absolute;
